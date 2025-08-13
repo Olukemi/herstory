@@ -45,8 +45,6 @@ function App() {
   return (
     <div className="p-6 max-w-2xl mx-auto">
       <h1 className="text-3xl font-bold text-black">HERSTORY</h1>
-      <p className="font-afacad mb-4">Track the significant moments in your life.</p>
-      <Event addEvent={addEvent} />
       <CTAButton text="export to csv" onClick={exportCSV} bgColor="bg-black" textColor="text-white" />
       <label className="font-afacad bg-black text-white px-4 py-2 rounded-full cursor-pointer">
           upload csv
@@ -57,6 +55,7 @@ function App() {
             className="hidden"
           />
         </label>
+      <Event addEvent={addEvent} />
 
       <Timeline events={events} />
     </div>
