@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import Event from './components/Event';
 import Timeline from './components/Timeline';
+import CTAButton from './components/CTAButton';
 import Papa from 'papaparse';
 import { saveAs } from 'file-saver';
 
@@ -44,12 +45,12 @@ function App() {
   return (
     <div className="p-6 max-w-2xl mx-auto">
       <h1 className="text-3xl font-bold text-pink-600">🌸 HerStory Timeline 📖</h1>
-      <p className="mb-4">Track the significant moments in your life.</p>
+      <p className="font-afacad mb-4">Track the significant moments in your life.</p>
       <Event addEvent={addEvent} />
       <button onClick={exportCSV} className="mt-4 bg-purple-500 text-white p-2 rounded">
         Export to CSV
       </button>
-      <label className="bg-purple-500 text-white px-4 py-2 rounded cursor-pointer">
+      <label className="font-afacad bg-purple-500 text-white px-4 py-2 rounded cursor-pointer">
           Upload CSV
           <input
             type="file"

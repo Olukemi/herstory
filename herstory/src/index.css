@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
 body {
-  @apply bg-pink-50 text-gray-800 font-sans;
+  @apply bg-white text-gray-800 font-afacad;
 }
