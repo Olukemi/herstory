@@ -33,7 +33,7 @@ export default function Event({ addEvent }) {
                 <input type="text" value={location} placeholder="Location" onChange={(e) => setLocation(e.target.value)} />
                 <input type="url" value={image} placeholder="Image" onChange={(e) => setImage(e.target.value)} />
                 <input type="url" value={link} placeholder="Link" onChange={(e) => setLink(e.target.value)} />
-                <CTAButton type="submit" text="add event" icon=" + " bgColor="bg-black" textColor="text-white" />
+                <CTAButton type="submit" text="add event" icon=" + " bgColor="bg-white" textColor="text-black" outline={true} />
             </form>
         </div>
     )

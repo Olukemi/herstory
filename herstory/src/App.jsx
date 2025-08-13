@@ -44,14 +44,12 @@ function App() {
 
   return (
     <div className="p-6 max-w-2xl mx-auto">
-      <h1 className="text-3xl font-bold text-pink-600">🌸 HerStory Timeline 📖</h1>
+      <h1 className="text-3xl font-bold text-black">HERSTORY</h1>
       <p className="font-afacad mb-4">Track the significant moments in your life.</p>
       <Event addEvent={addEvent} />
-      <button onClick={exportCSV} className="mt-4 bg-purple-500 text-white p-2 rounded">
-        Export to CSV
-      </button>
-      <label className="font-afacad bg-purple-500 text-white px-4 py-2 rounded cursor-pointer">
-          Upload CSV
+      <CTAButton text="export to csv" onClick={exportCSV} bgColor="bg-black" textColor="text-white" />
+      <label className="font-afacad bg-black text-white px-4 py-2 rounded-full cursor-pointer">
+          upload csv
           <input
             type="file"
             accept=".csv"
@@ -59,6 +57,7 @@ function App() {
             className="hidden"
           />
         </label>
+
       <Timeline events={events} />
     </div>
   );
