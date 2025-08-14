@@ -30,12 +30,12 @@ export default function Event({ addEvent }) {
             <img src={herstory} alt="event" className="w-1/4 h-auto" />
             <form onSubmit={onSubmit}>
                 <div className="flex flex-col gap-2">
-                    <input type="text" value={name} placeholder="Name" onChange={(e) => setName(e.target.value)} required />
-                    <input type="date" value={date} placeholder="Date" onChange={(e) => setDate(e.target.value)} required />
-                    <input type="text" value={location} placeholder="Location" onChange={(e) => setLocation(e.target.value)} />
-                    <input type="url" value={image} placeholder="Image" onChange={(e) => setImage(e.target.value)} />
-                    <input type="url" value={link} placeholder="Link" onChange={(e) => setLink(e.target.value)} />
-                    <textarea  type="text" value={description} placeholder="Description" onChange={(e) => setDescription(e.target.value)} />
+                    <input type="text" value={name} placeholder="name" onChange={(e) => setName(e.target.value)} required />
+                    <input type="date" value={date} placeholder="date" onChange={(e) => setDate(e.target.value)} required />
+                    <input type="text" value={location} placeholder="location" onChange={(e) => setLocation(e.target.value)} />
+                    <input type="url" value={image} placeholder="image" onChange={(e) => setImage(e.target.value)} />
+                    <input type="url" value={link} placeholder="link" onChange={(e) => setLink(e.target.value)} />
+                    <textarea  type="text" value={description} placeholder="description" onChange={(e) => setDescription(e.target.value)} />
                 </div>
                 <CTAButton type="submit" text="add event" icon=" + " bgColor="bg-white" textColor="text-black" outline={true} />
             </form>

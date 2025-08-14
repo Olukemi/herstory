@@ -3,6 +3,7 @@ import './App.css'
 import Event from './components/Event';
 import Timeline from './components/Timeline';
 import CTAButton from './components/CTAButton';
+import Logo from './components/Logo';
 import Papa from 'papaparse';
 import { saveAs } from 'file-saver';
 
@@ -44,7 +45,9 @@ function App() {
 
   return (
     <div className="p-6 max-w-2xl mx-auto">
-      <h1 className="text-3xl font-bold text-black">HERSTORY</h1>
+      <div className="absolute top-4 left-4">
+        <Logo />
+      </div>
       <CTAButton text="export to csv" onClick={exportCSV} bgColor="bg-black" textColor="text-white" />
       <label className="font-afacad bg-black text-white px-4 py-2 rounded-full cursor-pointer">
           upload csv
