@@ -26,16 +26,15 @@ export default function Event({ addEvent }) {
 
     return (
         <div>
-            <h1>Event</h1>
-            <img src={herstory} alt="event" className="w-1/4 h-auto" />
+            <img src={herstory} alt="event" className="w-1/4 h-1/4" />
             <form onSubmit={onSubmit}>
                 <div className="flex flex-col gap-2">
-                    <input type="text" value={name} placeholder="name" onChange={(e) => setName(e.target.value)} required />
-                    <input type="date" value={date} placeholder="date" onChange={(e) => setDate(e.target.value)} required />
-                    <input type="text" value={location} placeholder="location" onChange={(e) => setLocation(e.target.value)} />
-                    <input type="url" value={image} placeholder="image" onChange={(e) => setImage(e.target.value)} />
-                    <input type="url" value={link} placeholder="link" onChange={(e) => setLink(e.target.value)} />
-                    <textarea  type="text" value={description} placeholder="description" onChange={(e) => setDescription(e.target.value)} />
+                    <input type="text" value={name} placeholder="name*" onChange={(e) => setName(e.target.value)} required  className="bg-gray-100 rounded-full px-4 py-2 focus:outline-none"/>
+                    <input type="date" value={date} placeholder="date*" onChange={(e) => setDate(e.target.value)} required className="bg-gray-100 rounded-full px-4 py-2 focus:outline-none"/>
+                    <input type="text" value={location} placeholder="location*" onChange={(e) => setLocation(e.target.value)} required className="bg-gray-100 rounded-full px-4 py-2 focus:outline-none"/>
+                    <input type="url" value={image} placeholder="image" onChange={(e) => setImage(e.target.value)} className="bg-gray-100 rounded-full px-4 py-2 focus:outline-none" />
+                    <input type="url" value={link} placeholder="link" onChange={(e) => setLink(e.target.value)} className="bg-gray-100 rounded-full px-4 py-2 focus:outline-none" />
+                    <textarea  type="text" value={description} placeholder="description" onChange={(e) => setDescription(e.target.value)} className="bg-gray-100 rounded-xl px-4 py-2 focus:outline-none"/>
                 </div>
                 <CTAButton type="submit" text="add event" icon=" + " bgColor="bg-white" textColor="text-black" outline={true} />
             </form>

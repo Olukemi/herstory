@@ -9,10 +9,15 @@ import { saveAs } from 'file-saver';
 
 function App() {
   const [events, setEvents] = useState([]);
+  const [showAddEvent, setShowAddEvent] = useState(false);
 
   const addEvent = (event) => {
     setEvents([...events, event]);
   }
+
+  const handleAddEvent  = () => {
+    setShowAddEvent(true);
+  };
 
   const exportCSV = () => {
     const csv = Papa.unparse(events);
@@ -48,6 +53,7 @@ function App() {
       <div className="absolute top-4 left-4">
         <Logo />
       </div>
+      <CTAButton text="add event" onClick={handleAddEvent} bgColor="bg-white" textColor="text-black" outline={true} icon={" + "} />
       <CTAButton text="export to csv" onClick={exportCSV} bgColor="bg-black" textColor="text-white" />
       <label className="font-afacad bg-black text-white px-4 py-2 rounded-full cursor-pointer">
           upload csv
@@ -58,7 +64,7 @@ function App() {
             className="hidden"
           />
         </label>
-      <Event addEvent={addEvent} />
+      {showAddEvent && <Event addEvent={addEvent} />}
 
       <Timeline events={events} />
     </div>
