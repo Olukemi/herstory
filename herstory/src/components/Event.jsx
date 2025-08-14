@@ -2,7 +2,7 @@ import { useState } from "react";
 import CTAButton from "./CTAButton";
 import herstory from "../assets/herstory_book.png";
 
-export default function Event({ addEvent }) {
+export default function Event({ addEvent, setShowAddEvent }) {
     const [date, setDate] = useState(new Date());
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
@@ -12,6 +12,7 @@ export default function Event({ addEvent }) {
 
 
     const onSubmit = (e) => {
+        setShowAddEvent(false)
         e.preventDefault();
         if (!name || !date) return;
         addEvent({ date, name, description, location, image, link });
@@ -25,18 +26,20 @@ export default function Event({ addEvent }) {
     
 
     return (
-        <div>
-            <img src={herstory} alt="event" className="w-1/4 h-1/4" />
+        <div className="bg-blue-100 rounded-3xl p-8 mt-40">
+            <div className="flex flex-col items-center gap-4">
+                <img src={herstory} alt="event" className="w-1/4 h-1/4 object-contain" />
+            </div>
             <form onSubmit={onSubmit}>
                 <div className="flex flex-col gap-2">
-                    <input type="text" value={name} placeholder="name*" onChange={(e) => setName(e.target.value)} required  className="bg-gray-100 rounded-full px-4 py-2 focus:outline-none"/>
-                    <input type="date" value={date} placeholder="date*" onChange={(e) => setDate(e.target.value)} required className="bg-gray-100 rounded-full px-4 py-2 focus:outline-none"/>
-                    <input type="text" value={location} placeholder="location*" onChange={(e) => setLocation(e.target.value)} required className="bg-gray-100 rounded-full px-4 py-2 focus:outline-none"/>
-                    <input type="url" value={image} placeholder="image" onChange={(e) => setImage(e.target.value)} className="bg-gray-100 rounded-full px-4 py-2 focus:outline-none" />
-                    <input type="url" value={link} placeholder="link" onChange={(e) => setLink(e.target.value)} className="bg-gray-100 rounded-full px-4 py-2 focus:outline-none" />
-                    <textarea  type="text" value={description} placeholder="description" onChange={(e) => setDescription(e.target.value)} className="bg-gray-100 rounded-xl px-4 py-2 focus:outline-none"/>
+                    <input type="text" value={name} placeholder="name*" onChange={(e) => setName(e.target.value)} required  className="bg-gray-100 placeholder-gray-300 rounded-full px-4 py-2 focus:outline-none"/>
+                    <input type="date" value={date} placeholder="date*" onChange={(e) => setDate(e.target.value)} required className="bg-gray-100 placeholder-gray-300 rounded-full px-4 py-2 focus:outline-none"/>
+                    <input type="text" value={location} placeholder="location*" onChange={(e) => setLocation(e.target.value)} required className="bg-gray-100 placeholder-gray-300 rounded-full px-4 py-2 focus:outline-none"/>
+                    <input type="url" value={image} placeholder="image" onChange={(e) => setImage(e.target.value)} className="bg-gray-100 placeholder-gray-300 rounded-full px-4 py-2 focus:outline-none" />
+                    <input type="url" value={link} placeholder="link" onChange={(e) => setLink(e.target.value)} className="bg-gray-100 placeholder-gray-300 rounded-full px-4 py-2 focus:outline-none" />
+                    <textarea  type="text" value={description} placeholder="description" onChange={(e) => setDescription(e.target.value)} className="bg-gray-100 placeholder-gray-300 rounded-xl px-4 py-2 focus:outline-none"/>
                 </div>
-                <CTAButton type="submit" text="add event" icon=" + " bgColor="bg-white" textColor="text-black" outline={true} />
+                <CTAButton type="submit" text="add event" icon=" + " bgColor="bg-black" textColor="text-white" />
             </form>
         </div>
     )

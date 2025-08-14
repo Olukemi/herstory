@@ -53,18 +53,20 @@ function App() {
       <div className="absolute top-4 left-4">
         <Logo />
       </div>
-      <CTAButton text="add event" onClick={handleAddEvent} bgColor="bg-white" textColor="text-black" outline={true} icon={" + "} />
-      <CTAButton text="export to csv" onClick={exportCSV} bgColor="bg-black" textColor="text-white" />
-      <label className="font-afacad bg-black text-white px-4 py-2 rounded-full cursor-pointer">
-          upload csv
-          <input
-            type="file"
-            accept=".csv"
-            onChange={importCSV}
-            className="hidden"
-          />
-        </label>
-      {showAddEvent && <Event addEvent={addEvent} />}
+      <div className="absolute top-4 right-4 flex flex-row gap-2">
+        <CTAButton text="add event" onClick={handleAddEvent} bgColor="bg-white" textColor="text-black" outline={true} icon={" + "} />
+        <CTAButton text="export to csv" onClick={exportCSV} bgColor="bg-black" textColor="text-white" />
+        <label className="mt-4 bg-black text-white px-4 py-2 rounded-full cursor-pointer">
+            upload csv
+            <input
+              type="file"
+              accept=".csv"
+              onChange={importCSV}
+              className="hidden"
+            />
+          </label>
+        </div>
+      {showAddEvent && <Event addEvent={addEvent} setShowAddEvent={setShowAddEvent} />}
 
       <Timeline events={events} />
     </div>
