@@ -56,7 +56,7 @@ function App() {
       <div className="absolute top-4 right-4 flex flex-row gap-2">
         <CTAButton text="add event" onClick={handleAddEvent} bgColor="bg-white" textColor="text-black" outline={true} icon={" + "} />
         <CTAButton text="export to csv" onClick={exportCSV} bgColor="bg-black" textColor="text-white" />
-        <label className="mt-4 bg-black text-white px-4 py-2 rounded-full cursor-pointer">
+        <label className="mt-4 bg-black text-white px-4 py-2 rounded-full cursor-pointer hover:shadow-md">
             upload csv
             <input
               type="file"
