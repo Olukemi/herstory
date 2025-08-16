@@ -9,6 +9,7 @@ import { saveAs } from 'file-saver';
 
 function App() {
   const [events, setEvents] = useState([]);
+  const [imageFile, setImageFile] = useState(null);
   const [showAddEvent, setShowAddEvent] = useState(false);
 
   const addEvent = (event) => {
@@ -61,7 +62,7 @@ function App() {
         <CTAButton text="add event" onClick={handleAddEvent} bgColor="bg-white" textColor="text-black" outline={true} icon={" + "} />
         <CTAButton text="export as csv" onClick={exportCSV} bgColor="bg-black" textColor="text-white"/>
         <label className="mt-4 bg-black text-white px-4 py-2 rounded-full cursor-pointer hover:shadow-md">
-        <i class="ri-upload-cloud-2-line"></i>upload csv
+        <i class="ri-upload-cloud-2-line"></i> upload csv
             <input
               type="file"
               accept=".csv"

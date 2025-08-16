@@ -38,8 +38,21 @@ export default function Event({ addEvent, setShowAddEvent }) {
                     <input type="text" value={name} placeholder="name*" onChange={(e) => setName(e.target.value)} required  className="bg-gray-100 placeholder-gray-300 rounded-full px-4 py-2 focus:outline-none"/>
                     <input type="date" value={date} placeholder="date*" onChange={(e) => setDate(e.target.value)} required className="bg-gray-100 placeholder-gray-300 rounded-full px-4 py-2 focus:outline-none"/>
                     <input type="text" value={location} placeholder="location*" onChange={(e) => setLocation(e.target.value)} required className="bg-gray-100 placeholder-gray-300 rounded-full px-4 py-2 focus:outline-none"/>
-                    <input type="url" value={image} placeholder="image" onChange={(e) => setImage(e.target.value)} className="bg-gray-100 placeholder-gray-300 rounded-full px-4 py-2 focus:outline-none" />
+                    <input
+                        type="file"
+                        accept="image/*"
+                        onChange={(e) => {
+                            const file = e.target.files[0];
+                            if (!file) return;
+
+                            const previewURL = URL.createObjectURL(file); // preview
+                            setImage(previewURL);
+                            setImageFile(file); // store file object
+                        }}
+                        className="bg-gray-100 rounded-full px-4 py-2 focus:outline-none cursor-pointer"
+                        />
                     <input type="url" value={link} placeholder="link" onChange={(e) => setLink(e.target.value)} className="bg-gray-100 placeholder-gray-300 rounded-full px-4 py-2 focus:outline-none" />
+                    {/* {image && <img src={image} alt="preview" className="mt-2 w-48 rounded" />} */}
                     <textarea type="text" value={description} placeholder="description" onChange={(e) => setDescription(e.target.value)} className="bg-gray-100 placeholder-gray-300 rounded-xl px-4 py-2 focus:outline-none"/>
                 </div>
                 <CTAButton type="submit" text="add event" icon=" + " bgColor="bg-black" textColor="text-white" />
