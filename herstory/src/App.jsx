@@ -15,6 +15,10 @@ function App() {
     setEvents([...events, event]);
   }
 
+  const deleteEvent = (event) => {
+    setEvents(events.filter((_, i) => i !== event));
+  }
+
   const handleAddEvent  = () => {
     setShowAddEvent(true);
   };
@@ -55,9 +59,9 @@ function App() {
       </div>
       <div className="absolute top-4 right-4 flex flex-row gap-2">
         <CTAButton text="add event" onClick={handleAddEvent} bgColor="bg-white" textColor="text-black" outline={true} icon={" + "} />
-        <CTAButton text="export to csv" onClick={exportCSV} bgColor="bg-black" textColor="text-white" />
+        <CTAButton text="export as csv" onClick={exportCSV} bgColor="bg-black" textColor="text-white"/>
         <label className="mt-4 bg-black text-white px-4 py-2 rounded-full cursor-pointer hover:shadow-md">
-            upload csv
+        <i class="ri-upload-cloud-2-line"></i>upload csv
             <input
               type="file"
               accept=".csv"
@@ -79,7 +83,7 @@ function App() {
         </div>)}
 
 
-      <Timeline events={events} />
+      <Timeline events={events} deleteEvent={deleteEvent} />
     </div>
   );
 }
