@@ -26,7 +26,10 @@ export default function Event({ addEvent, setShowAddEvent }) {
     
 
     return (
-        <div className="bg-blue-100 rounded-3xl p-8 mt-40">
+        <div className="bg-white rounded-3xl p-8 w-[500px] max-w-[90vw] shadow-md relative">
+             <button className="absolute top-4 right-4 rounded-full hover:bg-gray-100 cursor-pointer px-3 py-1" onClick={() => setShowAddEvent(false)}>
+                {"X"}
+            </button>
             <div className="flex flex-col items-center gap-4">
                 <img src={herstory} alt="event" className="w-1/4 h-1/4 object-contain" />
             </div>

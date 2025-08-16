@@ -66,7 +66,18 @@ function App() {
             />
           </label>
         </div>
-      {showAddEvent && <Event addEvent={addEvent} setShowAddEvent={setShowAddEvent} />}
+        {showAddEvent && (
+        <div 
+          className="fixed inset-0 bg-gray-800 bg-opacity-40 flex items-center justify-center z-50"
+          onClick={() => setShowAddEvent(false)} >
+          <div 
+            className="bg-transparent" 
+            onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside form
+          >
+            <Event addEvent={addEvent} setShowAddEvent={setShowAddEvent} />
+          </div>
+        </div>)}
+
 
       <Timeline events={events} />
     </div>
