@@ -35,32 +35,6 @@ export default function Timeline({ events, deleteEvent }) {
                 className="w-full flex-shrink-0 flex justify-center items-center overflow-visible"
               >
                 <div className="relative w-[28rem] h-[28rem] flex items-center justify-center overflow-visible">
-                  {/* Curved text */}
-                  <svg
-                    viewBox="0 0 200 100"
-                    className="absolute -top-20 left-1/2 -translate-x-1/2 w-[28rem] h-32 overflow-visible pointer-events-none"
-                  >
-                    <defs>
-                      <path
-                        id={`curve-${index}`}
-                        d="M 0,100 A 100,100 0 0,1 200,100"
-                        fill="transparent"
-                      />
-                    </defs>
-                    <text
-                      fontSize="20"
-                      className="fill-white font-semibold lowercase tracking-wide"
-                    >
-                      <textPath
-                        xlinkHref={`#curve-${index}`}
-                        startOffset="50%"
-                        textAnchor="middle"
-                      >
-                        {event.name} | {event.date} | {event.location}
-                      </textPath>
-                    </text>
-                  </svg>
-
                   {/* Card */}
                   <div className="relative w-[28rem] h-[28rem] rounded-full shadow-xl bg-white flex flex-col items-center justify-center border overflow-visible">
                     {/* Delete button */}
@@ -70,7 +44,9 @@ export default function Timeline({ events, deleteEvent }) {
                     >
                       <i className="ri-delete-bin-5-line"></i>
                     </button>
-
+                    <p className="absolute top-12 px-3 py-2 bg-white/30 backdrop-blur-sm text-black  rounded-md text-center text-sm">
+  {event.name} | {event.date} | {event.location}
+</p>
                     {/* Event image */}
                     {event.image && (
                       <img
